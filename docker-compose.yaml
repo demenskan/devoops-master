@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  #Nginx Service
+  devoops-webserver:
+    image: nginx:alpine
+    container_name: devoops-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8230:80"
+      - "8231:443"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+
